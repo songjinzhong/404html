@@ -8,7 +8,7 @@
     <meta name="author" content="songjinzhong,songjz.ecnu@gmail.com">
     <title>404</title>
     <!-- 记住把下面的 homePageName、homePageUrl 改成你想需要的内容 -->
-    <script type="text/javascript" src="http://www.qq.com/404/search_children.js" homePageName="返回渔人的主页" homePageUrl="/" charset="utf-8">
+    <script type="text/javascript" src="http://www.qq.com/404/search_children.js" homePageName="返回主页" homePageUrl="/" charset="utf-8">
     </script>
     <script type="text/javascript">
         ! function() {
@@ -114,11 +114,8 @@
                 "undefined" != typeof exports ? module.exports = a : this.template = a, a("body", function(a) {
                     var b = this,
                         c = (b.$helpers, b.$escape),
-                        /*
-                        * 记住把下面的 homePageName、homePageUrl 改成你想需要的内容
-                        */
                         d = "/",
-                        e = "返回渔人的主页",
+                        e = "返回主页",
                         f = a.topid,
                         g = a.topimg,
                         h = a.topname,
@@ -131,6 +128,13 @@
                         p = b.$each,
                         q = a.otherdata,
                         r = (a.otheritem, a.index, "");
+                    var scs = document.getElementsByTagName("script");
+                    for (var i = 0; i < scs.length; i++)
+                    if (scs[i].src.indexOf("/404/search_children.js") > -1) {
+                        if (scs[i].getAttribute("homePageUrl")) d = scs[i].getAttribute("homePageUrl");
+                        if (scs[i].getAttribute("homePageName")) e = scs[i].getAttribute("homePageName");
+                        break
+                    }
                     return r += '<div class="mod_404"> <div class="wrapper" id="mainWrap"> <div class="mod_hd"> <h1 class="title"><span class="title_inner">404，您访问的页面找不回来了，但我们可以一起帮他们回家！</span></h1> <div class="desc"><a href="',
                         r += c(d), r += '" class="desc_link">', r += c(e), r += '</a></div> </div> <div class="mod_bd"> <div class="child_box"> <div class="mod_404_child child_in" data-id="', r += c(f), r += '" id="top_', r += c(f), r += '"> <div class="child_main cf"> <div class="child_avatar"><img src="', r += c(g), r += '" onload="imagezoom(this, 160, 216);" style="opacity:0"></div> <div class="child_info"> <div class="info_name"> <h2><span class="name_inner">', r += c(h), r += '</span><span class="info_sex">(', r += c(i), r += ')</span></h2> </div> <div class="info_item info_birth"><span class="info_lbl">出生日期：</span><span class="item_inner">',
                         r += c(j), r += '</span></div> <div class="info_item info_time"><span class="info_lbl">失踪时间：</span><span class="item_inner">', r += c(l), r += '</span></div> <div class="info_item info_address"><span class="info_lbl">失踪地点：</span><span class="item_inner">', r += c(m), r += '</span></div> <div class="info_item info_desc"><span class="info_lbl">失踪人特征描述：</span><span class="item_inner">', r += c(n), r += '</span></div> <a href="', r += c(o),
